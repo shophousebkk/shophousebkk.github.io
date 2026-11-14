@@ -46,7 +46,12 @@
   a { color: inherit; }
   html[data-lang="en"] [lang="th"], html[data-lang="th"] [lang="en"] { display: none !important; }
 
-  .lang { position: fixed; top: 16px; right: 18px; z-index: 10; display: flex; gap: 4px; }
+  .topright { display: flex; align-items: center; gap: 8px; flex: none; pointer-events: auto; }
+  .lang { display: flex; gap: 4px; }
+  .enq-btn { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; padding: 5px 13px; border-radius: 999px; background: var(--line); color: var(--bg); opacity: 0; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+  .enq-btn.on { opacity: 1; pointer-events: auto; }
+  .enq-btn:hover { background: #fff; }
+  html[data-lang="th"] .enq-btn { letter-spacing: .02em; text-transform: none; font-size: 13px; }
   .lang button { font: inherit; font-size: 12px; letter-spacing: .08em; background: none; border: 1px solid #3a3632; color: var(--dim); padding: 3px 10px; border-radius: 999px; cursor: pointer; }
   .lang button[aria-pressed="true"] { color: var(--bg); background: var(--line); border-color: var(--line); }
 
@@ -54,8 +59,14 @@
   .stage-wrap { position: relative; height: 420vh; }
   .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
   .intro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 5vw; }
-  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 9; pointer-events: none; background: linear-gradient(var(--bg) 45%, rgba(10,10,10,0)); }
-  .brand { position: absolute; top: 19px; left: 20px; font-family: var(--serif); font-weight: 300; font-size: 14px; letter-spacing: .32em; text-transform: uppercase; opacity: 0; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 9; pointer-events: none; background: linear-gradient(var(--bg) 45%, rgba(10,10,10,0));
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 16px 0 20px; }
+  .brand { padding-top: 5px; font-family: var(--serif); font-weight: 300; font-size: 14px; letter-spacing: .32em; text-transform: uppercase; opacity: 0; white-space: nowrap; overflow: hidden; min-width: 0; }
+  @media (max-width: 420px) {
+    .brand { letter-spacing: .2em; font-size: 13px; }
+    .lang button[aria-pressed="true"] { display: none; }   /* on phones show only the language you can switch to */
+    .enq-btn { padding: 5px 11px; letter-spacing: .1em; }
+  }
   .art { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -46%); height: min(82vh, 82svh, calc(90vw * 1.2496)); aspect-ratio: 1122 / 1402; }
   .art svg, .art img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .art img { opacity: 0; }
@@ -73,11 +84,13 @@
   .info { max-width: 980px; margin: 0 auto; padding: 14vh 6vw 10vh; }
   .info.first { padding-bottom: 0; }
 
-  .uses-line { margin: 18px 0 0; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim); }
-  html[data-lang="th"] .uses-line { letter-spacing: .04em; text-transform: none; font-size: 15px; }
+  .uses-sentence { margin: 14px 0 0; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(17px, 2.2vw, 21px); color: var(--dim); }
+  html[data-lang="th"] .uses-sentence { font-style: normal; }
 
   /* the spaces: one carousel and the list under it */
   #spaces { margin-top: 13vh; scroll-margin-top: 60px; }
+  #getintouch { scroll-margin-top: 70px; }
+  @media (max-width: 600px) { .info { padding: 10vh 6vw 7vh; } #spaces { margin-top: 9vh; } .k.sub-k { margin-top: 7vh; } .enq { margin-bottom: 7vh; } }
   .carousel { position: relative; margin: 0 -6vw; aspect-ratio: 4 / 5; background: var(--bg); }
   @media (min-width: 700px) { .carousel { margin: 0; aspect-ratio: 3 / 2; max-height: 80vh; max-height: 80svh; } }
   .ctrack { display: flex; width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; outline: none; }
@@ -91,6 +104,8 @@
   .cnav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3a3632; background: none; color: var(--line); font: 300 18px/1 var(--sans); cursor: pointer; }
   .cnav button:hover { border-color: var(--line); }
   .cnav .count { min-width: 64px; text-align: center; }
+  .ask { display: inline-block; margin: 6px 0 0; padding: 4px 0; background: none; border: 0; border-bottom: 1px solid var(--dim); color: var(--line); font: 300 15px/1.4 var(--sans); cursor: pointer; }
+  .ask:hover { color: #fff; border-color: var(--line); }
   .index { list-style: none; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--rule); }
   .index li > * { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-weight: 300; font-size: clamp(19px, 2.6vw, 26px); line-height: 1.3; }
   .index .nm { flex: 1; }
@@ -106,7 +121,6 @@
   .pack { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; font-size: 15px; text-decoration: none; border-bottom: 1px solid var(--dim); padding-bottom: 3px; }
   .pack:hover { border-color: var(--line); color: #fff; }
   .k.sub-k { margin-top: 10vh; }
-  .uses-line .u { white-space: nowrap; }
 
   /* booking enquiry */
   .enq { margin: 0 0 9vh; }
@@ -116,7 +130,7 @@
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chips label { position: relative; }
   .chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
-  .chips span.c { display: inline-block; padding: 8px 15px; border: 1px solid #3a3632; border-radius: 999px; font-size: 15px; color: var(--dim); transition: all .2s; }
+  .chips span.c { display: inline-block; padding: 10px 16px; border: 1px solid #3a3632; border-radius: 999px; font-size: 15px; color: var(--dim); transition: all .2s; }
   .chips input:checked + span.c { background: var(--line); border-color: var(--line); color: var(--bg); }
   .chips input:focus-visible + span.c { outline: 2px solid var(--line); outline-offset: 2px; }
   .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
@@ -130,7 +144,8 @@
   .sends { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
   .btn2 { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border: 1px solid #3a3632; border-radius: 999px; text-decoration: none; font-size: 16px; color: var(--dim); }
   .btn2:hover { border-color: var(--line); color: var(--line); }
-  .sends .cta { margin-top: 0; }
+  .sends .cta { margin-top: 0; background: var(--line); color: var(--bg); border-color: var(--line); }
+  .sends .cta:hover { background: #fff; border-color: #fff; color: var(--bg); }
   .index button { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--dim); text-align: left; cursor: pointer; transition: color .3s; }
   .index button:hover, .index button[aria-current="true"] { color: var(--line); }
   .index .n { font-family: var(--sans); font-size: 12px; letter-spacing: .2em; color: var(--dim); }
@@ -175,12 +190,17 @@
 </head>
 <body>
 
+
+
+<div class="topbar"><span class="brand" id="brand" aria-hidden="true">Shophouse</span>
+<div class="topright">
+<a class="enq-btn" id="enqBtn" href="#getintouch"><span lang="en">Enquire</span><span lang="th">สอบถาม</span></a>
 <div class="lang" role="group" aria-label="Language">
   <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
   <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
 </div>
-
-<div class="topbar"><span class="brand" id="brand" aria-hidden="true">Shophouse</span></div>
+</div>
+</div>
 
 <div class="stage-wrap" id="stageWrap">
   <div class="stage">
@@ -1532,7 +1552,7 @@
   <section class="reveal">
     <p class="k"><span lang="en">For hire</span><span lang="th">ให้เช่า</span></p>
     <p class="lead"><span lang="en">Event space for hire, short and long term.</span><span lang="th">พื้นที่จัดงานให้เช่า ทั้งระยะสั้นและระยะยาว</span></p>
-    <p class="uses-line"><span lang="en"><span class="u">Shoots</span> · <span class="u">Events</span> · <span class="u">Dinners</span> · <span class="u">Long-term lease</span></span><span lang="th"><span class="u">ถ่ายทำ</span> · <span class="u">จัดงาน</span> · <span class="u">ดินเนอร์</span> · <span class="u">เช่าระยะยาว</span></span></p>
+    <p class="uses-sentence"><span lang="en">For shoots, events, dinners and long-term leases.</span><span lang="th">สำหรับการถ่ายทำ งานอีเวนต์ ดินเนอร์ และการเช่าระยะยาว</span></p>
     <div class="terms-row">
       <span class="d"><span lang="en">1 day</span><span lang="th">1 วัน</span></span>
       <span class="d"><span lang="en">1 week</span><span lang="th">1 สัปดาห์</span></span>
@@ -1558,6 +1578,7 @@
      </div>
     </div>
     <div class="cbar"><div class="ccap" id="ccap" aria-live="polite"></div><div class="cnav"><button type="button" id="cprev" aria-label="Previous picture">‹</button><span class="count" id="ccount"></span><button type="button" id="cnext" aria-label="Next picture">›</button></div></div>
+    <button type="button" class="ask" id="cask" hidden><span lang="en">Ask about this space</span><span lang="th">สอบถามพื้นที่นี้</span> →</button>
     <ul class="index">
       <li><button type="button" data-go="1" data-li="0"><span class="nm"><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span><span class="n">01</span><span class="a">23 m²</span></button></li>
       <li><button type="button" data-go="2" data-li="1"><span class="nm"><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span><span class="n">02</span><span class="a">41 m²</span></button></li>
@@ -1585,7 +1606,7 @@
 
 <div class="info">
   <section class="reveal">
-    <p class="k"><span lang="en">Get in touch</span><span lang="th">ติดต่อเรา</span></p>
+    <p class="k" id="getintouch"><span lang="en">Get in touch</span><span lang="th">ติดต่อเรา</span></p>
     <p class="lead" style="font-size:clamp(22px,3.2vw,32px);margin-bottom:5vh"><span lang="en">Tell us what you're planning.</span><span lang="th">บอกเราว่าคุณวางแผนอะไรไว้</span></p>
     <form class="enq" id="enq" onsubmit="return false">
       <fieldset><legend><span lang="en">What for?</span><span lang="th">ใช้สำหรับ</span></legend>
@@ -1671,6 +1692,7 @@
   var lines = Array.prototype.slice.call(document.querySelectorAll("#drawing [data-s]")).map(function (el) {
     return { el: el, s: parseFloat(el.getAttribute("data-s")), d: parseFloat(el.getAttribute("data-d")), v: -1 };
   });
+  var enqBtn = document.getElementById("enqBtn");
   var intro = document.getElementById("intro"), hint = document.getElementById("hint"), brand = document.getElementById("brand");
   var drawing = document.getElementById("drawing"), facade = document.getElementById("facade");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1683,6 +1705,7 @@
     intro.style.opacity = 1 - k; intro.style.transform = "translateY(" + (-28 * k).toFixed(1) + "px)"; intro.style.filter = k > 0 ? "blur(" + (5 * k).toFixed(2) + "px)" : "none";
     hint.style.opacity = P > 0.015 ? 0 : 1;
     brand.style.opacity = reduce ? 1 : ease((P - 0.08) / 0.1);
+    enqBtn.classList.toggle("on", reduce || P > 0.12);
     var D = clamp((P - 0.07) / 0.62);
     for (var i = 0; i < lines.length; i++) {
       var L = lines[i], t = Math.round(clamp((D - L.s) / L.d) * 1000) / 1000;
@@ -1698,7 +1721,13 @@
 
   // The spaces carousel: swipe, arrows, the list and the caption all stay in step.
   var track = document.getElementById("ctrack"), slides = track.querySelectorAll("img"), cap = document.getElementById("ccap"), count = document.getElementById("ccount");
-  var rows = document.querySelectorAll(".index button"), cur = -1;
+  var rows = document.querySelectorAll(".index button"), cur = -1, ask = document.getElementById("cask");
+  var askMap = { "0": "gallery", "1": "retail", "3": "garden", "4": "hall", "5": "loft", "6": "bed" };
+  ask.addEventListener("click", function () {
+    var v = askMap[slides[cur].dataset.li], box = v && document.querySelector('#enq input[name="sp"][value="' + v + '"]');
+    if (box && !box.checked) { box.checked = true; box.dispatchEvent(new Event("change", { bubbles: true })); }
+    document.getElementById("getintouch").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  });
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
   function show(i) {
@@ -1706,6 +1735,7 @@
     cap.innerHTML = (s.dataset.n ? '<span class="n">' + s.dataset.n + "</span>" : "") + '<span lang="en">' + esc(s.dataset.en) + '</span><span lang="th">' + esc(s.dataset.th) + "</span>";
     count.textContent = pad(i + 1) + " / " + pad(slides.length);
     rows.forEach(function (r) { r.setAttribute("aria-current", r.dataset.li === s.dataset.li ? "true" : "false"); });
+    ask.hidden = !askMap[s.dataset.li];
   }
   var target = -1, unlock = 0;
   function go(i) {
@@ -1723,6 +1753,8 @@
   rows.forEach(function (r) { r.addEventListener("click", function () { go(parseInt(r.dataset.go, 10)); var c = document.querySelector(".carousel"); if (c.getBoundingClientRect().top < 0) c.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); }); });
   window.addEventListener("resize", function () { track.scrollLeft = cur * track.clientWidth; });
   show(0);
+
+  enqBtn.addEventListener("click", function (e) { e.preventDefault(); document.getElementById("getintouch").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); });
 
   // Tap a picture to see it full screen.
   var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img");
