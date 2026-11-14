@@ -36,18 +36,18 @@
   .lang button[aria-pressed="true"] { color: var(--bg); background: var(--line); border-color: var(--line); }
 
   /* the scroll stage */
-  .stage-wrap { position: relative; height: 480vh; }
-  .stage { position: sticky; top: 0; height: 100vh; height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 5vw; overflow: hidden; }
-  .art { position: relative; height: min(62vh, 62svh, calc(92vw * 1.2496)); aspect-ratio: 1122 / 1402; flex: none; }
+  .stage-wrap { position: relative; height: 420vh; }
+  .stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+  .intro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 5vw; }
+  .topbar { position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 9; pointer-events: none; background: linear-gradient(var(--bg) 45%, rgba(10,10,10,0)); }
+  .brand { position: absolute; top: 19px; left: 20px; font-family: var(--serif); font-weight: 300; font-size: 14px; letter-spacing: .32em; text-transform: uppercase; opacity: 0; }
+  .art { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -46%); height: min(82vh, 82svh, calc(90vw * 1.2496)); aspect-ratio: 1122 / 1402; }
   .art svg, .art img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .art img { opacity: 0; }
   svg.drawing path { fill: none; stroke: var(--line); stroke-width: .9; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .word { font-family: var(--serif); font-weight: 300; font-size: clamp(46px, 10vw, 120px); line-height: 1; letter-spacing: .02em; margin: 3.5vh 0 0; opacity: 0; filter: blur(8px); transform: translateY(14px); }
-  .sub { margin-top: 2.2vh; text-align: center; opacity: 0; transform: translateY(8px); }
-  .sub .place { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
-  .sub .uses { font-family: var(--serif); font-style: italic; font-size: clamp(17px, 2.2vw, 22px); margin-top: 8px; }
-  html[data-lang="th"] .sub .place { letter-spacing: .06em; font-size: 14px; text-transform: none; }
-  html[data-lang="th"] .sub .uses { font-style: normal; }
+  .word { font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 11.5vw, 132px); line-height: 1; letter-spacing: .14em; margin: 0 -.14em 0 0; text-transform: uppercase; }
+  .place { margin: 3.2vh 0 0; font-size: 12px; letter-spacing: .32em; text-transform: uppercase; color: var(--dim); }
+  html[data-lang="th"] .place { letter-spacing: .06em; font-size: 15px; text-transform: none; }
   .hint { position: absolute; bottom: 22px; left: 0; right: 0; text-align: center; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); transition: opacity .4s; }
   html[data-lang="th"] .hint { letter-spacing: .05em; text-transform: none; font-size: 13px; }
   .hint i { display: block; width: 1px; height: 30px; background: var(--dim); margin: 8px auto 0; animation: drip 1.8s infinite; }
@@ -80,7 +80,13 @@
   .cta svg { width: 18px; height: 18px; }
   footer { max-width: 980px; margin: 0 auto; padding: 30px 6vw 44px; color: #5f5952; font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid var(--rule); }
   @media (max-width: 480px) { .terms-row span.d { font-size: 16px; padding: 16px 2px; } }
-  @media (prefers-reduced-motion: reduce) { .stage-wrap { height: auto; } .stage { position: relative; min-height: 100vh; } .hint { display: none; } }
+  @media (max-width: 480px) { .place { font-size: 11px; letter-spacing: .24em; } }
+  @media (prefers-reduced-motion: reduce) {
+    .stage-wrap { height: auto; } .stage { position: relative; height: auto; overflow: visible; display: flex; flex-direction: column; }
+    .intro { order: -1; }
+    .intro { position: relative; height: 100vh; height: 100svh; } .hint { display: none; }
+    .art { position: relative; left: auto; top: auto; transform: none; margin: 0 auto; }
+  }
 </style>
 </head>
 <body>
@@ -90,9 +96,11 @@
   <button type="button" data-set-lang="th" aria-pressed="false">ไทย</button>
 </div>
 
+<div class="topbar"><span class="brand" id="brand" aria-hidden="true">Shophouse</span></div>
+
 <div class="stage-wrap" id="stageWrap">
   <div class="stage">
-    <div class="art">
+    <div class="art" id="art">
       <svg class="drawing" id="drawing" viewBox="0 0 1122 1402" aria-hidden="true">
 <path pathLength="1" data-s="0.045" data-d="0.083" d="M599.8 1331l0-8.2-19.4-0.2l-19.4-0.1 0 8.2c0 4.5 0.2 8.3 0.3 8.5c0.2 0.2 9 0.3 19.4 0.2l19.1-0.2 0-8.2z"/>
 <path pathLength="1" data-s="0.045" data-d="0.083" d="M559.4 1339.1c0.5-0.3 0.6-2.4 0.5-8.4l-0.1-7.9-20 0l-20 0 0.1 8c0.1 4.4 0.3 8.1 0.4 8.3c0.3 0.5 38.3 0.5 39.1 0z"/>
@@ -1427,10 +1435,9 @@
         <img id="facade" src="facade.jpg" width="1122" height="1402" alt="A line drawing of the front of the shophouse: two floors, a tiled awning with three lamps, louvred shutters and a panelled door">
       </picture>
     </div>
-    <h1 class="word" id="word">Shophouse</h1>
-    <div class="sub" id="sub">
-      <div class="place"><span lang="en">Vanich 1 · Chinatown · Bangkok</span><span lang="th">ซอยวานิช 1 · เยาวราช · กรุงเทพฯ</span></div>
-      <div class="uses"><span lang="en">Event space for hire, short and long term</span><span lang="th">พื้นที่จัดงานให้เช่า ทั้งระยะสั้นและระยะยาว</span></div>
+    <div class="intro" id="intro">
+      <h1 class="word">Shophouse</h1>
+      <p class="place"><span lang="en">Vanich 1 · Chinatown · Bangkok</span><span lang="th">ซอยวานิช 1 · เยาวราช · กรุงเทพฯ</span></p>
     </div>
     <div class="hint" id="hint"><span lang="en">Scroll</span><span lang="th">เลื่อนลง</span><i></i></div>
   </div>
@@ -1494,13 +1501,13 @@
   setLang((params.get("lang") || saved || ((navigator.language || "").toLowerCase().indexOf("th") === 0 ? "th" : "en")) === "th" ? "th" : "en");
   document.querySelectorAll("[data-set-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.getAttribute("data-set-lang")); }); });
 
-  // Scroll timeline: 0-0.5 the drawing draws itself from the ground up, 0.47-0.6 the finished drawing fades in,
-  // 0.6-0.75 the word, 0.75-0.88 the line under it.
+  // Scroll timeline: the name first; scrolling fades it out and the house draws itself from the ground up
+  // (0.07-0.69), then the finished drawing fades in (0.66-0.78) and holds before the information below.
   var wrap = document.getElementById("stageWrap");
   var lines = Array.prototype.slice.call(document.querySelectorAll("#drawing [data-s]")).map(function (el) {
     return { el: el, s: parseFloat(el.getAttribute("data-s")), d: parseFloat(el.getAttribute("data-d")), v: -1 };
   });
-  var word = document.getElementById("word"), sub = document.getElementById("sub"), hint = document.getElementById("hint");
+  var intro = document.getElementById("intro"), hint = document.getElementById("hint"), brand = document.getElementById("brand");
   var drawing = document.getElementById("drawing"), facade = document.getElementById("facade");
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
@@ -1508,18 +1515,17 @@
   function frame() {
     var span = wrap.offsetHeight - window.innerHeight;
     var P = reduce ? 1 : clamp(-wrap.getBoundingClientRect().top / span);
-    var D = clamp(P / 0.5);
+    var k = reduce ? 0 : ease((P - 0.015) / 0.1);
+    intro.style.opacity = 1 - k; intro.style.transform = "translateY(" + (-28 * k).toFixed(1) + "px)"; intro.style.filter = k > 0 ? "blur(" + (5 * k).toFixed(2) + "px)" : "none";
+    hint.style.opacity = P > 0.015 ? 0 : 1;
+    brand.style.opacity = reduce ? 1 : ease((P - 0.08) / 0.1);
+    var D = clamp((P - 0.07) / 0.62);
     for (var i = 0; i < lines.length; i++) {
       var L = lines[i], t = Math.round(clamp((D - L.s) / L.d) * 1000) / 1000;
       if (t !== L.v) { L.v = t; L.el.style.strokeDashoffset = 1 - t; }
     }
-    var r = ease((P - 0.47) / 0.13);
+    var r = ease((P - 0.66) / 0.12);
     facade.style.opacity = r; drawing.style.opacity = 1 - r;
-    var w = ease((P - 0.6) / 0.15);
-    word.style.opacity = w; word.style.filter = "blur(" + (8 * (1 - w)).toFixed(2) + "px)"; word.style.transform = "translateY(" + (14 * (1 - w)).toFixed(1) + "px)";
-    var s = ease((P - 0.75) / 0.13);
-    sub.style.opacity = s; sub.style.transform = "translateY(" + (8 * (1 - s)).toFixed(1) + "px)";
-    hint.style.opacity = P > 0.03 ? 0 : 1;
   }
   var ticking = false;
   window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { frame(); ticking = false; }); } }, { passive: true });
