@@ -55,6 +55,34 @@
 
   /* hire, spaces, contact */
   .info { max-width: 980px; margin: 0 auto; padding: 14vh 6vw 10vh; }
+  .info.first { padding-bottom: 0; }
+
+  /* the spaces: one carousel and the list under it */
+  #spaces { margin-top: 13vh; scroll-margin-top: 60px; }
+  .carousel { position: relative; margin: 0 -6vw; aspect-ratio: 4 / 5; background: var(--bg); }
+  @media (min-width: 700px) { .carousel { margin: 0; aspect-ratio: 3 / 2; max-height: 80vh; max-height: 80svh; } }
+  .ctrack { display: flex; width: 100%; height: 100%; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; outline: none; }
+  .ctrack::-webkit-scrollbar { display: none; }
+  .ctrack img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; scroll-snap-align: center; scroll-snap-stop: always; display: block; cursor: zoom-in; }
+  .cbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px 0 0; min-height: 52px; }
+  .ccap { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; line-height: 1.5; }
+  .ccap .n { color: var(--dim); margin-right: 12px; }
+  html[data-lang="th"] .ccap { letter-spacing: .03em; text-transform: none; font-size: 14px; }
+  .cnav { display: flex; align-items: center; gap: 4px; flex: none; font-size: 12px; letter-spacing: .14em; color: var(--dim); }
+  .cnav button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #3a3632; background: none; color: var(--line); font: 300 18px/1 var(--sans); cursor: pointer; }
+  .cnav button:hover { border-color: var(--line); }
+  .cnav .count { min-width: 64px; text-align: center; }
+  .index { list-style: none; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--rule); }
+  .index li > * { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-weight: 300; font-size: clamp(19px, 2.6vw, 26px); line-height: 1.3; }
+  .index button { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--dim); text-align: left; cursor: pointer; transition: color .3s; }
+  .index button:hover, .index button[aria-current="true"] { color: var(--line); }
+  .index .n { font-family: var(--sans); font-size: 12px; letter-spacing: .2em; color: var(--dim); }
+  .index .plain { color: var(--dim); }
+  .lightbox { position: fixed; inset: 0; z-index: 30; background: rgba(10,10,10,.97); display: none; align-items: center; justify-content: center; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 96vw; max-height: 94vh; object-fit: contain; }
+  .lightbox .x { position: absolute; top: 12px; right: 16px; font: 300 30px/1 var(--sans); color: var(--dim); background: none; border: 0; cursor: pointer; padding: 8px; }
+  @media (max-width: 480px) { .ccap { font-size: 11px; letter-spacing: .18em; } .cnav .count { min-width: 52px; } }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
   .reveal.in { opacity: 1; transform: none; }
   .k { font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--dim); margin: 0 0 20px; }
@@ -71,10 +99,6 @@
   .terms-row { display: flex; flex-wrap: wrap; gap: 0; margin-top: 34px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
   .terms-row span.d { white-space: nowrap; flex: 1 1 25%; text-align: center; padding: 18px 8px; font-family: var(--serif); font-size: clamp(18px, 2.6vw, 26px); border-left: 1px solid var(--rule); }
   .terms-row span.d:first-child { border-left: 0; }
-  .spaces { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-  .spaces li { padding: 16px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-weight: 300; font-size: clamp(22px, 3.4vw, 34px); line-height: 1.3; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
-  .spaces li .n { font-family: var(--sans); font-size: 12px; letter-spacing: .2em; color: var(--dim); }
-  .block { margin-top: 12vh; }
   .cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 10vh; padding: 16px 28px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-size: 16px; font-weight: 400; }
   .cta:hover { background: var(--line); color: var(--bg); }
   .cta svg { width: 18px; height: 18px; }
@@ -1443,7 +1467,8 @@
   </div>
 </div>
 
-<main class="info">
+<main>
+<div class="info">
   <section class="reveal">
     <p class="k"><span lang="en">For hire</span><span lang="th">ให้เช่า</span></p>
     <p class="lead"><span lang="en">Event space for hire, short and long term.</span><span lang="th">พื้นที่จัดงานให้เช่า ทั้งระยะสั้นและระยะยาว</span></p>
@@ -1455,20 +1480,39 @@
     </div>
   </section>
 
-  <section class="block reveal">
+  <section class="reveal" id="spaces">
     <p class="k"><span lang="en">The spaces</span><span lang="th">พื้นที่</span></p>
-    <ul class="spaces">
-      <li><span><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span><span class="n">01</span></li>
-      <li><span><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span><span class="n">02</span></li>
-      <li><span><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span><span class="n">03</span></li>
-      <li><span><span lang="en">Kitchen opening onto the garden</span><span lang="th">ครัวที่เปิดออกสู่สวน</span></span><span class="n">04</span></li>
-      <li><span><span lang="en">Covered tropical garden</span><span lang="th">สวนทรอปิคอลแบบมีหลังคา</span></span><span class="n">05</span></li>
-      <li><span><span lang="en">Ensuite loft-style bedroom with balcony</span><span lang="th">ห้องนอนสไตล์ลอฟต์ พร้อมห้องน้ำในตัวและระเบียง</span></span><span class="n">06</span></li>
-      <li><span><span lang="en">Ensuite bedroom with larger balcony</span><span lang="th">ห้องนอนพร้อมห้องน้ำในตัวและระเบียงขนาดใหญ่</span></span><span class="n">07</span></li>
+    <div class="carousel" aria-roledescription="carousel" aria-label="Pictures of the spaces">
+     <div class="ctrack" id="ctrack" tabindex="0">
+      <img src="img/front-door-800.webp" srcset="img/front-door-800.webp 800w, img/front-door.webp 1086w" sizes="(max-width: 980px) 100vw, 980px" width="1086" height="1448" alt="The panelled teak front door with its barred transom" loading="eager" decoding="async" data-n="" data-en="Front door" data-th="ประตูหน้า" data-li="">
+      <img src="img/gallery-800.webp" srcset="img/gallery-800.webp 800w, img/gallery.webp 1087w" sizes="(max-width: 980px) 100vw, 980px" width="1087" height="1447" alt="The gallery: a long dark corridor of framed prints under track lights and pendant lamps" loading="eager" decoding="async" data-n="01" data-en="Gallery" data-th="แกลเลอรี" data-li="0">
+      <img src="img/retail-space-800.webp" srcset="img/retail-space-800.webp 800w, img/retail-space.webp 1448w" sizes="(max-width: 980px) 100vw, 980px" width="1448" height="1086" alt="The retail space: a long counter facing lit display shelves" loading="lazy" decoding="async" data-n="02" data-en="Retail space" data-th="พื้นที่ร้านค้า" data-li="1">
+      <img src="img/garden-800.webp" srcset="img/garden-800.webp 800w, img/garden.webp 1448w" sizes="(max-width: 980px) 100vw, 980px" width="1448" height="1086" alt="The covered garden set for a dinner: two long tables among ferns, palms and climbing plants" loading="lazy" decoding="async" data-n="04" data-en="Covered tropical garden" data-th="สวนทรอปิคอลแบบมีหลังคา" data-li="3">
+      <img src="img/staircase-800.webp" srcset="img/staircase-800.webp 800w, img/staircase.webp 1122w" sizes="(max-width: 980px) 100vw, 980px" width="1122" height="1402" alt="The central stairwell, looking up to the floor above" loading="lazy" decoding="async" data-n="" data-en="Central stairwell" data-th="โถงบันไดกลาง" data-li="">
+      <img src="img/event-hall-800.webp" srcset="img/event-hall-800.webp 800w, img/event-hall.webp 1086w" sizes="(max-width: 980px) 100vw, 980px" width="1086" height="1448" alt="The event hall: an open room under exposed timber roof trusses" loading="lazy" decoding="async" data-n="05" data-en="Event hall" data-th="ห้องจัดงาน" data-li="4">
+      <img src="img/loft-bedroom-800.webp" srcset="img/loft-bedroom-800.webp 800w, img/loft-bedroom.webp 1448w" sizes="(max-width: 980px) 100vw, 980px" width="1448" height="1086" alt="The loft-style bedroom under exposed roof beams" loading="lazy" decoding="async" data-n="06" data-en="Ensuite loft-style bedroom with balcony" data-th="ห้องนอนสไตล์ลอฟต์ พร้อมห้องน้ำในตัวและระเบียง" data-li="5">
+      <img src="img/loft-bedroom-balcony-800.webp" srcset="img/loft-bedroom-balcony-800.webp 800w, img/loft-bedroom-balcony.webp 1086w" sizes="(max-width: 980px) 100vw, 980px" width="1086" height="1448" alt="The loft bedroom balcony, looking out over tropical plants" loading="lazy" decoding="async" data-n="06" data-en="Its balcony" data-th="ระเบียงของห้องนี้" data-li="5">
+      <img src="img/bedroom-800.webp" srcset="img/bedroom-800.webp 800w, img/bedroom.webp 1536w" sizes="(max-width: 980px) 100vw, 980px" width="1536" height="1024" alt="The ensuite bedroom with a ceiling fan and a door out to the garden" loading="lazy" decoding="async" data-n="07" data-en="Ensuite bedroom with larger balcony" data-th="ห้องนอนพร้อมห้องน้ำในตัวและระเบียงขนาดใหญ่" data-li="6">
+      <img src="img/bedroom-balcony-800.webp" srcset="img/bedroom-balcony-800.webp 800w, img/bedroom-balcony.webp 1536w" sizes="(max-width: 980px) 100vw, 980px" width="1536" height="1024" alt="The larger covered balcony with rattan chairs and plants" loading="lazy" decoding="async" data-n="07" data-en="Its larger balcony" data-th="ระเบียงขนาดใหญ่ของห้องนี้" data-li="6">
+     </div>
+    </div>
+    <div class="cbar"><div class="ccap" id="ccap" aria-live="polite"></div><div class="cnav"><button type="button" id="cprev" aria-label="Previous picture">‹</button><span class="count" id="ccount"></span><button type="button" id="cnext" aria-label="Next picture">›</button></div></div>
+    <ul class="index">
+      <li><button type="button" data-go="1" data-li="0"><span><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span><span class="n">01</span></button></li>
+      <li><button type="button" data-go="2" data-li="1"><span><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span><span class="n">02</span></button></li>
+      <li><div class="plain"><span><span lang="en">Kitchen opening onto the garden</span><span lang="th">ครัวที่เปิดออกสู่สวน</span></span><span class="n">03</span></div></li>
+      <li><button type="button" data-go="3" data-li="3"><span><span lang="en">Covered tropical garden</span><span lang="th">สวนทรอปิคอลแบบมีหลังคา</span></span><span class="n">04</span></button></li>
+      <li><button type="button" data-go="5" data-li="4"><span><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span><span class="n">05</span></button></li>
+      <li><button type="button" data-go="6" data-li="5"><span><span lang="en">Ensuite loft-style bedroom with balcony</span><span lang="th">ห้องนอนสไตล์ลอฟต์ พร้อมห้องน้ำในตัวและระเบียง</span></span><span class="n">06</span></button></li>
+      <li><button type="button" data-go="8" data-li="6"><span><span lang="en">Ensuite bedroom with larger balcony</span><span lang="th">ห้องนอนพร้อมห้องน้ำในตัวและระเบียงขนาดใหญ่</span></span><span class="n">07</span></button></li>
     </ul>
   </section>
 
-  <section class="block reveal">
+</div>
+
+
+<div class="info">
+  <section class="reveal">
     <p class="k"><span lang="en">Get in touch</span><span lang="th">ติดต่อเรา</span></p>
     <div class="contact">
       <a class="js-wa" href="https://wa.me/66993954596" target="_blank" rel="noopener"><span>+66 99 395 4596</span><span class="t">WhatsApp</span></a>
@@ -1481,7 +1525,9 @@
       <span lang="en">Ask about dates on WhatsApp</span><span lang="th">สอบถามวันว่างทาง WhatsApp</span>
     </a>
   </section>
+</div>
 </main>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Picture"><button class="x" type="button" aria-label="Close">×</button><img alt=""></div>
 <footer><span>© 2026 Shophouse</span><span>shophousebkk.com</span></footer>
 
 <script>
@@ -1533,6 +1579,46 @@
   window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(function () { frame(); ticking = false; }); } }, { passive: true });
   window.addEventListener("resize", frame);
   frame();
+
+  // The spaces carousel: swipe, arrows, the list and the caption all stay in step.
+  var track = document.getElementById("ctrack"), slides = track.querySelectorAll("img"), cap = document.getElementById("ccap"), count = document.getElementById("ccount");
+  var rows = document.querySelectorAll(".index button"), cur = -1;
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function esc(s) { var d = document.createElement("div"); d.textContent = s; return d.innerHTML; }
+  function show(i) {
+    if (i === cur) return; cur = i; var s = slides[i];
+    cap.innerHTML = (s.dataset.n ? '<span class="n">' + s.dataset.n + "</span>" : "") + '<span lang="en">' + esc(s.dataset.en) + '</span><span lang="th">' + esc(s.dataset.th) + "</span>";
+    count.textContent = pad(i + 1) + " / " + pad(slides.length);
+    rows.forEach(function (r) { r.setAttribute("aria-current", r.dataset.li === s.dataset.li ? "true" : "false"); });
+  }
+  var target = -1, unlock = 0;
+  function go(i) {
+    i = (i + slides.length) % slides.length; target = i; clearTimeout(unlock); unlock = setTimeout(function () { target = -1; }, 1500);
+    track.scrollTo({ left: i * track.clientWidth, behavior: reduce ? "auto" : "smooth" }); show(i);
+  }
+  track.addEventListener("scroll", function () { requestAnimationFrame(function () {
+    var i = Math.round(track.scrollLeft / Math.max(track.clientWidth, 1));
+    if (target >= 0) { if (i === target) target = -1; return; }  // ignore the slides passed on the way to a chosen one
+    show(i);
+  }); }, { passive: true });
+  document.getElementById("cprev").addEventListener("click", function () { go(cur - 1); });
+  document.getElementById("cnext").addEventListener("click", function () { go(cur + 1); });
+  track.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") { e.preventDefault(); go(cur + 1); } if (e.key === "ArrowLeft") { e.preventDefault(); go(cur - 1); } });
+  rows.forEach(function (r) { r.addEventListener("click", function () { go(parseInt(r.dataset.go, 10)); var c = document.querySelector(".carousel"); if (c.getBoundingClientRect().top < 0) c.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); }); });
+  window.addEventListener("resize", function () { track.scrollLeft = cur * track.clientWidth; });
+  show(0);
+
+  // Tap a picture to see it full screen.
+  var lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img");
+  function closeLb() { lb.classList.remove("open"); document.body.style.overflow = ""; }
+  slides.forEach(function (img) {
+    img.addEventListener("click", function () {
+      lbImg.src = img.srcset ? img.srcset.split(",").pop().trim().split(" ")[0] : img.src; lbImg.alt = img.alt;
+      lb.classList.add("open"); document.body.style.overflow = "hidden";
+    });
+  });
+  lb.addEventListener("click", closeLb);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
 
   // The sections fade in when they come into view.
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
