@@ -3,15 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Shophouse · Vanich 1, Chinatown, Bangkok</title>
-<meta name="description" content="A 1940s shophouse on Vanich 1, Bangkok's Chinatown. Event space for hire, short and long term: by the day, week, month or year. Viewings by appointment.">
+<title>Shophouse · Shoot location and event space in Chinatown, Bangkok</title>
+<meta name="description" content="A 1940s shophouse on Vanich 1 (Sampeng Lane), Chinatown, Bangkok, for photo and film shoots, events, dinners and long-term lease: gallery, event hall, covered tropical garden, kitchen, retail space and two ensuite bedrooms. By the day, week, month or year. สถานที่ถ่ายทำและเช่าจัดงาน เยาวราช กรุงเทพฯ">
+<link rel="canonical" href="https://shophousebkk.com/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="th_TH">
 <meta property="og:title" content="Shophouse · Vanich 1, Chinatown">
-<meta property="og:description" content="A 1940s shophouse in Bangkok's Chinatown. Event space for hire, short and long term.">
+<meta property="og:description" content="A 1940s shophouse in Bangkok's Chinatown for shoots, events, dinners and long-term lease. By the day, week, month or year.">
 <meta property="og:image" content="https://shophousebkk.com/og.png">
 <meta property="og:url" content="https://shophousebkk.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0a0a0a">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": ["EventVenue", "LocalBusiness"], "@id": "https://shophousebkk.com/#venue",
+ "name": "Shophouse", "alternateName": "Shophouse Bangkok",
+ "description": "A shophouse on Vanich 1 (Sampeng Lane) in Bangkok's Chinatown for photo and film shoots, events, dinners and long-term lease: gallery, event hall, covered tropical garden, kitchen, retail space and two ensuite bedrooms. Hire by the day, week, month or year. Viewings by appointment.",
+ "url": "https://shophousebkk.com/", "image": ["https://shophousebkk.com/og.png", "https://shophousebkk.com/facade.jpg"],
+ "telephone": "+66993954596", "email": "hello@shophousebkk.com",
+ "address": {"@type": "PostalAddress", "streetAddress": "Soi Wanit 1 (Sampeng Lane)", "addressLocality": "Samphanthawong", "addressRegion": "Bangkok", "addressCountry": "TH"},
+ "sameAs": ["https://www.instagram.com/shophousebkk/"],
+ "amenityFeature": [{"@type": "LocationFeatureSpecification", "name": "Covered garden", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Ensuite bedrooms", "value": true}]}
+</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,6 +71,9 @@
   .info { max-width: 980px; margin: 0 auto; padding: 14vh 6vw 10vh; }
   .info.first { padding-bottom: 0; }
 
+  .uses-line { margin: 18px 0 0; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim); }
+  html[data-lang="th"] .uses-line { letter-spacing: .04em; text-transform: none; font-size: 15px; }
+
   /* the spaces: one carousel and the list under it */
   #spaces { margin-top: 13vh; scroll-margin-top: 60px; }
   .carousel { position: relative; margin: 0 -6vw; aspect-ratio: 4 / 5; background: var(--bg); }
@@ -74,7 +90,43 @@
   .cnav button:hover { border-color: var(--line); }
   .cnav .count { min-width: 64px; text-align: center; }
   .index { list-style: none; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--rule); }
-  .index li > * { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-weight: 300; font-size: clamp(19px, 2.6vw, 26px); line-height: 1.3; }
+  .index li > * { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-family: var(--serif); font-weight: 300; font-size: clamp(19px, 2.6vw, 26px); line-height: 1.3; }
+  .index .nm { flex: 1; }
+  .index .n { order: -1; min-width: 26px; }
+  .index .a { font-family: var(--sans); font-size: 13px; letter-spacing: .06em; color: var(--dim); white-space: nowrap; }
+  .fine { margin: 12px 0 0; font-size: 13px; color: #5f5952; }
+  .facts { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; border-top: 1px solid var(--rule); }
+  .facts > div { display: grid; grid-template-columns: 9.5em 1fr; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .facts dt { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); padding-top: 3px; }
+  html[data-lang="th"] .facts dt { letter-spacing: .03em; text-transform: none; font-size: 14px; }
+  .facts dd { margin: 0; font-size: 16px; line-height: 1.6; }
+  @media (max-width: 560px) { .facts > div { grid-template-columns: 1fr; gap: 4px; } }
+  .pack { display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; font-size: 15px; text-decoration: none; border-bottom: 1px solid var(--dim); padding-bottom: 3px; }
+  .pack:hover { border-color: var(--line); color: #fff; }
+  .k.sub-k { margin-top: 10vh; }
+  .uses-line .u { white-space: nowrap; }
+
+  /* booking enquiry */
+  .enq { margin: 0 0 9vh; }
+  .enq fieldset { border: 0; margin: 0 0 22px; padding: 0; }
+  .enq legend, .enq label.q { display: block; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; padding: 0; }
+  html[data-lang="th"] .enq legend, html[data-lang="th"] .enq label.q { letter-spacing: .03em; text-transform: none; font-size: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips label { position: relative; }
+  .chips input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .chips span.c { display: inline-block; padding: 8px 15px; border: 1px solid #3a3632; border-radius: 999px; font-size: 15px; color: var(--dim); transition: all .2s; }
+  .chips input:checked + span.c { background: var(--line); border-color: var(--line); color: var(--bg); }
+  .chips input:focus-visible + span.c { outline: 2px solid var(--line); outline-offset: 2px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+  .enq input[type="date"], .enq input[type="number"], .enq input[type="text"], .enq textarea {
+    width: 100%; background: transparent; border: 0; border-bottom: 1px solid #3a3632; color: var(--line); font: 300 17px/1.5 var(--sans); padding: 8px 0; border-radius: 0; color-scheme: dark; }
+  .enq input:focus, .enq textarea:focus { outline: none; border-bottom-color: var(--line); }
+  .enq textarea { resize: vertical; min-height: 44px; }
+  .sends { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .btn2 { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border: 1px solid #3a3632; border-radius: 999px; text-decoration: none; font-size: 16px; color: var(--dim); }
+  .btn2:hover { border-color: var(--line); color: var(--line); }
+  .sends .cta { margin-top: 0; }
   .index button { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--rule); color: var(--dim); text-align: left; cursor: pointer; transition: color .3s; }
   .index button:hover, .index button[aria-current="true"] { color: var(--line); }
   .index .n { font-family: var(--sans); font-size: 12px; letter-spacing: .2em; color: var(--dim); }
@@ -1473,6 +1525,7 @@
   <section class="reveal">
     <p class="k"><span lang="en">For hire</span><span lang="th">ให้เช่า</span></p>
     <p class="lead"><span lang="en">Event space for hire, short and long term.</span><span lang="th">พื้นที่จัดงานให้เช่า ทั้งระยะสั้นและระยะยาว</span></p>
+    <p class="uses-line"><span lang="en"><span class="u">Shoots</span> · <span class="u">Events</span> · <span class="u">Dinners</span> · <span class="u">Long-term lease</span></span><span lang="th"><span class="u">ถ่ายทำ</span> · <span class="u">จัดงาน</span> · <span class="u">ดินเนอร์</span> · <span class="u">เช่าระยะยาว</span></span></p>
     <div class="terms-row">
       <span class="d"><span lang="en">1 day</span><span lang="th">1 วัน</span></span>
       <span class="d"><span lang="en">1 week</span><span lang="th">1 สัปดาห์</span></span>
@@ -1499,14 +1552,25 @@
     </div>
     <div class="cbar"><div class="ccap" id="ccap" aria-live="polite"></div><div class="cnav"><button type="button" id="cprev" aria-label="Previous picture">‹</button><span class="count" id="ccount"></span><button type="button" id="cnext" aria-label="Next picture">›</button></div></div>
     <ul class="index">
-      <li><button type="button" data-go="1" data-li="0"><span><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span><span class="n">01</span></button></li>
-      <li><button type="button" data-go="2" data-li="1"><span><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span><span class="n">02</span></button></li>
-      <li><div class="plain"><span><span lang="en">Kitchen opening onto the garden</span><span lang="th">ครัวที่เปิดออกสู่สวน</span></span><span class="n">03</span></div></li>
-      <li><button type="button" data-go="3" data-li="3"><span><span lang="en">Covered tropical garden</span><span lang="th">สวนทรอปิคอลแบบมีหลังคา</span></span><span class="n">04</span></button></li>
-      <li><button type="button" data-go="5" data-li="4"><span><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span><span class="n">05</span></button></li>
-      <li><button type="button" data-go="6" data-li="5"><span><span lang="en">Ensuite loft-style bedroom with balcony</span><span lang="th">ห้องนอนสไตล์ลอฟต์ พร้อมห้องน้ำในตัวและระเบียง</span></span><span class="n">06</span></button></li>
-      <li><button type="button" data-go="8" data-li="6"><span><span lang="en">Ensuite bedroom with larger balcony</span><span lang="th">ห้องนอนพร้อมห้องน้ำในตัวและระเบียงขนาดใหญ่</span></span><span class="n">07</span></button></li>
+      <li><button type="button" data-go="1" data-li="0"><span class="nm"><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span><span class="n">01</span><span class="a">23 m²</span></button></li>
+      <li><button type="button" data-go="2" data-li="1"><span class="nm"><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span><span class="n">02</span><span class="a">41 m²</span></button></li>
+      <li><div class="plain"><span class="nm"><span lang="en">Kitchen opening onto the garden</span><span lang="th">ครัวที่เปิดออกสู่สวน</span></span><span class="n">03</span><span class="a">16 m²</span></div></li>
+      <li><button type="button" data-go="3" data-li="3"><span class="nm"><span lang="en">Covered tropical garden</span><span lang="th">สวนทรอปิคอลแบบมีหลังคา</span></span><span class="n">04</span><span class="a">57 m²</span></button></li>
+      <li><button type="button" data-go="5" data-li="4"><span class="nm"><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span><span class="n">05</span><span class="a">65 m²</span></button></li>
+      <li><button type="button" data-go="6" data-li="5"><span class="nm"><span lang="en">Ensuite loft-style bedroom with balcony</span><span lang="th">ห้องนอนสไตล์ลอฟต์ พร้อมห้องน้ำในตัวและระเบียง</span></span><span class="n">06</span><span class="a">44 m²</span></button></li>
+      <li><button type="button" data-go="8" data-li="6"><span class="nm"><span lang="en">Ensuite bedroom with larger balcony</span><span lang="th">ห้องนอนพร้อมห้องน้ำในตัวและระเบียงขนาดใหญ่</span></span><span class="n">07</span><span class="a">16 m² + 10 m²</span></button></li>
     </ul>
+    <p class="fine"><span lang="en">Sizes are approximate and inside floor areas. The second bedroom's 10 m² is its covered balcony.</span><span lang="th">ขนาดโดยประมาณ วัดพื้นที่ภายใน 10 ตร.ม. ของห้องนอนที่สองคือระเบียงมีหลังคา</span></p>
+
+    <p class="k sub-k"><span lang="en">Good to know</span><span lang="th">ข้อมูลควรรู้</span></p>
+    <dl class="facts">
+      <div><dt><span lang="en">Size</span><span lang="th">ขนาด</span></dt><dd><span lang="en">About 320 m² inside, over three floors, plus two balconies.</span><span lang="th">พื้นที่ภายในประมาณ 320 ตร.ม. สามชั้น พร้อมระเบียงสองแห่ง</span></dd></div>
+      <div><dt><span lang="en">Bathrooms</span><span lang="th">ห้องน้ำ</span></dt><dd><span lang="en">Four: two on the ground floor and one ensuite with each bedroom.</span><span lang="th">4 ห้อง: ชั้นล่าง 2 ห้อง และห้องน้ำในตัวของห้องนอนแต่ละห้อง</span></dd></div>
+      <div><dt><span lang="en">Kitchen</span><span lang="th">ครัว</span></dt><dd><span lang="en">All-electric, with no gas.</span><span lang="th">ใช้ไฟฟ้าทั้งหมด ไม่ใช้แก๊ส</span></dd></div>
+      <div><dt><span lang="en">Getting here</span><span lang="th">การเดินทาง</span></dt><dd><span lang="en">On foot along Vanich 1 (Sampeng Lane), which is pedestrian only, with no parking. Ratchawong Pier (Chao Phraya Express Boat) and MRT Wat Mangkon are both within walking distance.</span><span lang="th">เดินเท้าเข้าทางซอยวานิช 1 (สำเพ็ง) ซึ่งเป็นทางเดินเท้า ไม่มีที่จอดรถ เดินจากท่าเรือราชวงศ์ (เรือด่วนเจ้าพระยา) และ MRT วัดมังกรได้</span></dd></div>
+      <div><dt><span lang="en">The lane</span><span lang="th">ในซอย</span></dt><dd><span lang="en">A busy wholesale market by day, roughly 8am to 6pm. Early mornings and evenings are the quietest times for shoots and load-ins.</span><span lang="th">ตลาดค้าส่งคึกคักในช่วงกลางวัน ประมาณ 8.00 ถึง 18.00 น. ช่วงเช้าตรู่และช่วงเย็นเงียบที่สุด เหมาะสำหรับการถ่ายทำและขนของเข้า</span></dd></div>
+    </dl>
+    <a class="pack" href="Shophouse-location-pack.pdf" download><span lang="en">Download the location pack (PDF)</span><span lang="th">ดาวน์โหลดข้อมูลสถานที่ (PDF)</span> ↓</a>
   </section>
 
 </div>
@@ -1515,16 +1579,37 @@
 <div class="info">
   <section class="reveal">
     <p class="k"><span lang="en">Get in touch</span><span lang="th">ติดต่อเรา</span></p>
+    <p class="lead" style="font-size:clamp(22px,3.2vw,32px);margin-bottom:5vh"><span lang="en">Tell us what you're planning.</span><span lang="th">บอกเราว่าคุณวางแผนอะไรไว้</span></p>
+    <form class="enq" id="enq" onsubmit="return false">
+      <fieldset><legend><span lang="en">What for?</span><span lang="th">ใช้สำหรับ</span></legend>
+        <div class="chips"><label><input type="radio" name="use" value="shoot" data-en="Shoot" data-th="ถ่ายทำ"><span class="c"><span lang="en">Shoot</span><span lang="th">ถ่ายทำ</span></span></label><label><input type="radio" name="use" value="event" data-en="Event" data-th="จัดงาน"><span class="c"><span lang="en">Event</span><span lang="th">จัดงาน</span></span></label><label><input type="radio" name="use" value="dinner" data-en="Dinner" data-th="ดินเนอร์"><span class="c"><span lang="en">Dinner</span><span lang="th">ดินเนอร์</span></span></label><label><input type="radio" name="use" value="lease" data-en="Long-term lease" data-th="เช่าระยะยาว"><span class="c"><span lang="en">Long-term lease</span><span lang="th">เช่าระยะยาว</span></span></label></div></fieldset>
+      <fieldset><legend><span lang="en">Which spaces?</span><span lang="th">พื้นที่ที่สนใจ</span></legend>
+        <div class="chips"><label><input type="checkbox" name="sp" value="all" data-en="Whole building" data-th="ทั้งอาคาร"><span class="c"><span lang="en">Whole building</span><span lang="th">ทั้งอาคาร</span></span></label><label><input type="checkbox" name="sp" value="gallery" data-en="Gallery" data-th="แกลเลอรี"><span class="c"><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span></label><label><input type="checkbox" name="sp" value="retail" data-en="Retail space" data-th="พื้นที่ร้านค้า"><span class="c"><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span></label><label><input type="checkbox" name="sp" value="kitchen" data-en="Kitchen" data-th="ครัว"><span class="c"><span lang="en">Kitchen</span><span lang="th">ครัว</span></span></label><label><input type="checkbox" name="sp" value="garden" data-en="Garden" data-th="สวน"><span class="c"><span lang="en">Garden</span><span lang="th">สวน</span></span></label><label><input type="checkbox" name="sp" value="hall" data-en="Event hall" data-th="ห้องจัดงาน"><span class="c"><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span></label><label><input type="checkbox" name="sp" value="loft" data-en="Loft bedroom" data-th="ห้องนอนลอฟต์"><span class="c"><span lang="en">Loft bedroom</span><span lang="th">ห้องนอนลอฟต์</span></span></label><label><input type="checkbox" name="sp" value="bed" data-en="Bedroom" data-th="ห้องนอน"><span class="c"><span lang="en">Bedroom</span><span lang="th">ห้องนอน</span></span></label></div></fieldset>
+      <fieldset><legend><span lang="en">How long?</span><span lang="th">ระยะเวลา</span></legend>
+        <div class="chips"><label><input type="radio" name="len" value="day" data-en="1 day" data-th="1 วัน"><span class="c"><span lang="en">1 day</span><span lang="th">1 วัน</span></span></label><label><input type="radio" name="len" value="days" data-en="A few days" data-th="หลายวัน"><span class="c"><span lang="en">A few days</span><span lang="th">หลายวัน</span></span></label><label><input type="radio" name="len" value="week" data-en="1 week" data-th="1 สัปดาห์"><span class="c"><span lang="en">1 week</span><span lang="th">1 สัปดาห์</span></span></label><label><input type="radio" name="len" value="month" data-en="1 month" data-th="1 เดือน"><span class="c"><span lang="en">1 month</span><span lang="th">1 เดือน</span></span></label><label><input type="radio" name="len" value="year" data-en="1 year or more" data-th="1 ปีขึ้นไป"><span class="c"><span lang="en">1 year or more</span><span lang="th">1 ปีขึ้นไป</span></span></label></div></fieldset>
+      <div class="row2">
+        <fieldset><label class="q" for="eq-date"><span lang="en">Start date</span><span lang="th">วันที่เริ่ม</span></label><input type="date" id="eq-date"></fieldset>
+        <fieldset><label class="q" for="eq-ppl"><span lang="en">How many people?</span><span lang="th">จำนวนคน</span></label><input type="number" id="eq-ppl" min="1" inputmode="numeric"></fieldset>
+      </div>
+      <div class="row2">
+        <fieldset><label class="q" for="eq-name"><span lang="en">Your name</span><span lang="th">ชื่อของคุณ</span></label><input type="text" id="eq-name" autocomplete="name"></fieldset>
+        <fieldset><label class="q" for="eq-co"><span lang="en">Company (optional)</span><span lang="th">บริษัท (ถ้ามี)</span></label><input type="text" id="eq-co" autocomplete="organization"></fieldset>
+      </div>
+      <fieldset><label class="q" for="eq-notes"><span lang="en">Anything else?</span><span lang="th">รายละเอียดเพิ่มเติม</span></label><textarea id="eq-notes" rows="2"></textarea></fieldset>
+      <div class="sends">
+        <a class="cta js-wa" id="eq-wa" href="https://wa.me/66993954596" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+          <span lang="en">Send on WhatsApp</span><span lang="th">ส่งทาง WhatsApp</span></a>
+        <a class="btn2" id="eq-mail" href="mailto:hello@shophousebkk.com"><span lang="en">Send by email</span><span lang="th">ส่งทางอีเมล</span></a>
+      </div>
+    </form>
+    <p class="k"><span lang="en">Or contact us directly</span><span lang="th">หรือติดต่อโดยตรง</span></p>
     <div class="contact">
       <a class="js-wa" href="https://wa.me/66993954596" target="_blank" rel="noopener"><span>+66 99 395 4596</span><span class="t">WhatsApp</span></a>
       <a href="mailto:hello@shophousebkk.com"><span>hello@shophousebkk.com</span><span class="t"><span lang="en">Email</span><span lang="th">อีเมล</span></span></a>
       <a href="https://www.instagram.com/shophousebkk/" target="_blank" rel="noopener"><span>@shophousebkk</span><span class="t">Instagram</span></a>
     </div>
     <p class="note"><span lang="en">Vanich 1 (Sampeng Lane), Chinatown, Bangkok. Viewings by appointment.</span><span lang="th">ซอยวานิช 1 (สำเพ็ง) เยาวราช กรุงเทพฯ ชมสถานที่ตามนัดหมายเท่านั้น</span></p>
-    <a class="cta js-wa" href="https://wa.me/66993954596" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
-      <span lang="en">Ask about dates on WhatsApp</span><span lang="th">สอบถามวันว่างทาง WhatsApp</span>
-    </a>
   </section>
 </div>
 </main>
@@ -1535,11 +1620,34 @@
 (function () {
   var root = document.documentElement, params = new URLSearchParams(location.search);
   var from = (params.get("from") || "").replace(/[^a-z0-9_-]/gi, "").slice(0, 30);
-  function links() {
-    var th = root.getAttribute("data-lang") === "th";
-    var msg = (th ? "สวัสดี Shophouse อยากสอบถามเรื่องเช่าพื้นที่" : "Hi Shophouse, I'd like to ask about hiring the space.") + (from ? " (via " + from + ")" : "");
-    document.querySelectorAll(".js-wa").forEach(function (a) { a.href = "https://wa.me/66993954596?text=" + encodeURIComponent(msg); });
+  if (!from) { var seg = location.pathname.replace(/\/+$/, "").split("/").pop(); if (seg === "qr") from = "poster"; if (seg === "ig") from = "instagram"; }
+  function picked(name) { return Array.prototype.filter.call(document.querySelectorAll('#enq input[name="' + name + '"]'), function (i) { return i.checked; }); }
+  function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ""; }
+  function message() {
+    var th = root.getAttribute("data-lang") === "th", L = th ? "th" : "en", lines = [];
+    lines.push(th ? "สวัสดี Shophouse อยากสอบถามเรื่องเช่าพื้นที่" : "Hi Shophouse, I'd like to ask about hiring the space.");
+    var use = picked("use"), sp = picked("sp"), len = picked("len");
+    function names(list) { return list.map(function (i) { return i.dataset[L]; }).join(", "); }
+    if (use.length) lines.push((th ? "ใช้สำหรับ: " : "For: ") + names(use));
+    if (sp.length) lines.push((th ? "พื้นที่: " : "Spaces: ") + names(sp));
+    var d = val("eq-date"), ds = "";
+    if (d) { ds = new Date(d + "T00:00:00").toLocaleDateString(th ? "th-TH" : "en-GB", { day: "numeric", month: "long", year: "numeric" }); lines.push((th ? "วันที่เริ่ม: " : "Start: ") + ds); }
+    if (len.length) lines.push((th ? "ระยะเวลา: " : "How long: ") + names(len));
+    if (val("eq-ppl")) lines.push((th ? "จำนวนคน: " : "People: ") + val("eq-ppl"));
+    var who = [val("eq-name"), val("eq-co")].filter(Boolean).join(", ");
+    if (who) lines.push((th ? "ชื่อ: " : "Name: ") + who);
+    if (val("eq-notes")) lines.push((th ? "รายละเอียด: " : "Notes: ") + val("eq-notes"));
+    if (from) lines.push("(via " + from + ")");
+    return { text: lines.join("\n"), subject: (th ? "สอบถามการเช่า Shophouse" : "Booking enquiry") + (use.length ? ": " + names(use) : "") + (ds ? (th ? " " : ", ") + ds : "") };
   }
+  function links() {
+    var m = message();
+    document.querySelectorAll(".js-wa").forEach(function (a) { a.href = "https://wa.me/66993954596?text=" + encodeURIComponent(m.text); });
+    var mail = document.getElementById("eq-mail");
+    if (mail) mail.href = "mailto:hello@shophousebkk.com?subject=" + encodeURIComponent(m.subject) + "&body=" + encodeURIComponent(m.text);
+  }
+  document.addEventListener("input", function (e) { if (e.target.closest && e.target.closest("#enq")) links(); });
+  document.addEventListener("change", function (e) { if (e.target.closest && e.target.closest("#enq")) links(); });
   function setLang(l) {
     root.setAttribute("data-lang", l); root.setAttribute("lang", l);
     document.querySelectorAll("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === l ? "true" : "false"); });
