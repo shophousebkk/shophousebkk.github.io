@@ -84,6 +84,24 @@
   .info { max-width: 980px; margin: 0 auto; padding: 14vh 6vw 10vh; }
   .info.first { padding-bottom: 0; }
 
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+  .tags li { border: 1px solid #3a3632; border-radius: 999px; padding: 6px 13px; font-size: 14px; color: var(--dim); line-height: 1.3; }
+  .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 34px 0 0; }
+  .stat { padding: 4px 14px 4px 0; }
+  .stat + .stat { padding-left: 16px; border-left: 1px solid var(--rule); }
+  .stat b { display: block; font-family: var(--serif); font-weight: 300; font-size: clamp(28px, 4.2vw, 42px); line-height: 1.1; color: var(--line); }
+  .stat span { display: block; margin-top: 6px; font-size: 13px; line-height: 1.4; color: var(--dim); }
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+    .stat + .stat { padding-left: 0; border-left: 0; }
+    .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--rule); }
+  }
+  .steps { list-style: none; margin: 0 0 7vh; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); counter-reset: st; }
+  .steps li { padding: 18px 16px 18px 0; font-size: 15px; line-height: 1.5; counter-increment: st; }
+  .steps li + li { padding-left: 16px; border-left: 1px solid var(--rule); }
+  .steps li::before { content: "0" counter(st); display: block; font-size: 12px; letter-spacing: .2em; color: var(--dim); margin-bottom: 6px; }
+  @media (max-width: 600px) { .steps { grid-template-columns: minmax(0, 1fr); } .steps li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); } }
+  .maplink { white-space: nowrap; }
   .uses-sentence { margin: 14px 0 0; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(17px, 2.2vw, 21px); color: var(--dim); }
   html[data-lang="th"] .uses-sentence { font-style: normal; }
 
@@ -1552,12 +1570,18 @@
   <section class="reveal">
     <p class="k"><span lang="en">For hire</span><span lang="th">ให้เช่า</span></p>
     <p class="lead"><span lang="en">Event space for hire, short and long term.</span><span lang="th">พื้นที่จัดงานให้เช่า ทั้งระยะสั้นและระยะยาว</span></p>
-    <p class="uses-sentence"><span lang="en">For shoots, events, dinners and long-term leases.</span><span lang="th">สำหรับการถ่ายทำ งานอีเวนต์ ดินเนอร์ และการเช่าระยะยาว</span></p>
+    <ul class="tags" aria-label="Ideal for"><li><span lang="en">Photo and film shoots</span><span lang="th">ถ่ายภาพและถ่ายทำ</span></li><li><span lang="en">Exhibitions</span><span lang="th">นิทรรศการ</span></li><li><span lang="en">Pop-ups</span><span lang="th">ป๊อปอัพ</span></li><li><span lang="en">Brand launches</span><span lang="th">เปิดตัวแบรนด์</span></li><li><span lang="en">Supper clubs</span><span lang="th">ซัปเปอร์คลับ</span></li><li><span lang="en">Private dinners</span><span lang="th">ดินเนอร์ส่วนตัว</span></li><li><span lang="en">Workshops</span><span lang="th">เวิร์กช็อป</span></li><li><span lang="en">Showrooms</span><span lang="th">โชว์รูม</span></li><li><span lang="en">Long-term lease</span><span lang="th">เช่าระยะยาว</span></li></ul>
     <div class="terms-row">
       <span class="d"><span lang="en">1 day</span><span lang="th">1 วัน</span></span>
       <span class="d"><span lang="en">1 week</span><span lang="th">1 สัปดาห์</span></span>
       <span class="d"><span lang="en">1 month</span><span lang="th">1 เดือน</span></span>
       <span class="d"><span lang="en">1 year</span><span lang="th">1 ปี</span></span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>320 m²</b><span><span lang="en">inside, over three floors</span><span lang="th">พื้นที่ภายใน สามชั้น</span></span></div>
+      <div class="stat"><b>7</b><span><span lang="en">spaces to hire, alone or together</span><span lang="th">พื้นที่ให้เช่า แยกหรือรวมกันได้</span></span></div>
+      <div class="stat"><b>57 m²</b><span><span lang="en">covered tropical garden</span><span lang="th">สวนทรอปิคอลมีหลังคา</span></span></div>
+      <div class="stat"><b>4</b><span><span lang="en">bathrooms, two of them ensuite</span><span lang="th">ห้องน้ำ มีห้องน้ำในตัว 2 ห้อง</span></span></div>
     </div>
   </section>
 
@@ -1595,7 +1619,7 @@
       <div><dt><span lang="en">Size</span><span lang="th">ขนาด</span></dt><dd><span lang="en">About 320 m² inside, over three floors, plus two balconies.</span><span lang="th">พื้นที่ภายในประมาณ 320 ตร.ม. สามชั้น พร้อมระเบียงสองแห่ง</span></dd></div>
       <div><dt><span lang="en">Bathrooms</span><span lang="th">ห้องน้ำ</span></dt><dd><span lang="en">Four: two on the ground floor and one ensuite with each bedroom.</span><span lang="th">4 ห้อง: ชั้นล่าง 2 ห้อง และห้องน้ำในตัวของห้องนอนแต่ละห้อง</span></dd></div>
       <div><dt><span lang="en">Kitchen</span><span lang="th">ครัว</span></dt><dd><span lang="en">All-electric, with no gas.</span><span lang="th">ใช้ไฟฟ้าทั้งหมด ไม่ใช้แก๊ส</span></dd></div>
-      <div><dt><span lang="en">Getting here</span><span lang="th">การเดินทาง</span></dt><dd><span lang="en">On foot along Vanich 1 (Sampeng Lane), which is pedestrian only, with no parking. Ratchawong Pier (Chao Phraya Express Boat) and MRT Wat Mangkon are both within walking distance.</span><span lang="th">เดินเท้าเข้าทางซอยวานิช 1 (สำเพ็ง) ซึ่งเป็นทางเดินเท้า ไม่มีที่จอดรถ เดินจากท่าเรือราชวงศ์ (เรือด่วนเจ้าพระยา) และ MRT วัดมังกรได้</span></dd></div>
+      <div><dt><span lang="en">Getting here</span><span lang="th">การเดินทาง</span></dt><dd><span lang="en">On foot along Vanich 1 (Sampeng Lane), which is pedestrian only, with no parking. Ratchawong Pier (Chao Phraya Express Boat) and MRT Wat Mangkon are both within walking distance. <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sampeng+Lane+Soi+Wanit+1+Bangkok" target="_blank" rel="noopener">Map of the lane ↗</a></span><span lang="th">เดินเท้าเข้าทางซอยวานิช 1 (สำเพ็ง) ซึ่งเป็นทางเดินเท้า ไม่มีที่จอดรถ เดินจากท่าเรือราชวงศ์ (เรือด่วนเจ้าพระยา) และ MRT วัดมังกรได้ <a class="maplink" href="https://www.google.com/maps/search/?api=1&amp;query=Sampeng+Lane+Soi+Wanit+1+Bangkok" target="_blank" rel="noopener">แผนที่ซอย ↗</a></span></dd></div>
       <div><dt><span lang="en">The lane</span><span lang="th">ในซอย</span></dt><dd><span lang="en">A busy wholesale market by day, roughly 8am to 6pm. Early mornings and evenings are the quietest times for shoots and load-ins.</span><span lang="th">ตลาดค้าส่งคึกคักในช่วงกลางวัน ประมาณ 8.00 ถึง 18.00 น. ช่วงเช้าตรู่และช่วงเย็นเงียบที่สุด เหมาะสำหรับการถ่ายทำและขนของเข้า</span></dd></div>
     </dl>
     <a class="pack" href="Shophouse-location-pack.pdf" download><span lang="en">Download the location pack (PDF)</span><span lang="th">ดาวน์โหลดข้อมูลสถานที่ (PDF)</span> ↓</a>
@@ -1608,9 +1632,14 @@
   <section class="reveal">
     <p class="k" id="getintouch"><span lang="en">Get in touch</span><span lang="th">ติดต่อเรา</span></p>
     <p class="lead" style="font-size:clamp(22px,3.2vw,32px);margin-bottom:5vh"><span lang="en">Tell us what you're planning.</span><span lang="th">บอกเราว่าคุณวางแผนอะไรไว้</span></p>
+    <ol class="steps" aria-label="How booking works">
+      <li><span lang="en">Tell us your dates and plans, here or on WhatsApp.</span><span lang="th">บอกวันและรายละเอียดงานของคุณ ที่นี่หรือทาง WhatsApp</span></li>
+      <li><span lang="en">We reply with availability and a quote, and can show you round.</span><span lang="th">เราตอบกลับเรื่องวันว่างและใบเสนอราคา และนัดชมสถานที่ได้</span></li>
+      <li><span lang="en">Confirm, and your dates are held.</span><span lang="th">ยืนยัน แล้วเราจะจองวันไว้ให้คุณ</span></li>
+    </ol>
     <form class="enq" id="enq" onsubmit="return false">
       <fieldset><legend><span lang="en">What for?</span><span lang="th">ใช้สำหรับ</span></legend>
-        <div class="chips"><label><input type="radio" name="use" value="shoot" data-en="Shoot" data-th="ถ่ายทำ"><span class="c"><span lang="en">Shoot</span><span lang="th">ถ่ายทำ</span></span></label><label><input type="radio" name="use" value="event" data-en="Event" data-th="จัดงาน"><span class="c"><span lang="en">Event</span><span lang="th">จัดงาน</span></span></label><label><input type="radio" name="use" value="dinner" data-en="Dinner" data-th="ดินเนอร์"><span class="c"><span lang="en">Dinner</span><span lang="th">ดินเนอร์</span></span></label><label><input type="radio" name="use" value="lease" data-en="Long-term lease" data-th="เช่าระยะยาว"><span class="c"><span lang="en">Long-term lease</span><span lang="th">เช่าระยะยาว</span></span></label></div></fieldset>
+        <div class="chips"><label><input type="radio" name="use" value="shoot" data-en="Shoot" data-th="ถ่ายทำ"><span class="c"><span lang="en">Shoot</span><span lang="th">ถ่ายทำ</span></span></label><label><input type="radio" name="use" value="event" data-en="Event" data-th="จัดงาน"><span class="c"><span lang="en">Event</span><span lang="th">จัดงาน</span></span></label><label><input type="radio" name="use" value="exhibition" data-en="Exhibition or pop-up" data-th="นิทรรศการหรือป๊อปอัพ"><span class="c"><span lang="en">Exhibition or pop-up</span><span lang="th">นิทรรศการหรือป๊อปอัพ</span></span></label><label><input type="radio" name="use" value="dinner" data-en="Dinner" data-th="ดินเนอร์"><span class="c"><span lang="en">Dinner</span><span lang="th">ดินเนอร์</span></span></label><label><input type="radio" name="use" value="workshop" data-en="Workshop" data-th="เวิร์กช็อป"><span class="c"><span lang="en">Workshop</span><span lang="th">เวิร์กช็อป</span></span></label><label><input type="radio" name="use" value="lease" data-en="Long-term lease" data-th="เช่าระยะยาว"><span class="c"><span lang="en">Long-term lease</span><span lang="th">เช่าระยะยาว</span></span></label></div></fieldset>
       <fieldset><legend><span lang="en">Which spaces?</span><span lang="th">พื้นที่ที่สนใจ</span></legend>
         <div class="chips"><label><input type="checkbox" name="sp" value="all" data-en="Whole building" data-th="ทั้งอาคาร"><span class="c"><span lang="en">Whole building</span><span lang="th">ทั้งอาคาร</span></span></label><label><input type="checkbox" name="sp" value="gallery" data-en="Gallery" data-th="แกลเลอรี"><span class="c"><span lang="en">Gallery</span><span lang="th">แกลเลอรี</span></span></label><label><input type="checkbox" name="sp" value="retail" data-en="Retail space" data-th="พื้นที่ร้านค้า"><span class="c"><span lang="en">Retail space</span><span lang="th">พื้นที่ร้านค้า</span></span></label><label><input type="checkbox" name="sp" value="kitchen" data-en="Kitchen" data-th="ครัว"><span class="c"><span lang="en">Kitchen</span><span lang="th">ครัว</span></span></label><label><input type="checkbox" name="sp" value="garden" data-en="Garden" data-th="สวน"><span class="c"><span lang="en">Garden</span><span lang="th">สวน</span></span></label><label><input type="checkbox" name="sp" value="hall" data-en="Event hall" data-th="ห้องจัดงาน"><span class="c"><span lang="en">Event hall</span><span lang="th">ห้องจัดงาน</span></span></label><label><input type="checkbox" name="sp" value="loft" data-en="Loft bedroom" data-th="ห้องนอนลอฟต์"><span class="c"><span lang="en">Loft bedroom</span><span lang="th">ห้องนอนลอฟต์</span></span></label><label><input type="checkbox" name="sp" value="bed" data-en="Bedroom" data-th="ห้องนอน"><span class="c"><span lang="en">Bedroom</span><span lang="th">ห้องนอน</span></span></label></div></fieldset>
       <fieldset><legend><span lang="en">How long?</span><span lang="th">ระยะเวลา</span></legend>
@@ -1619,6 +1648,8 @@
         <fieldset><label class="q" for="eq-date"><span lang="en">Start date</span><span lang="th">วันที่เริ่ม</span></label><input type="date" id="eq-date"></fieldset>
         <fieldset><label class="q" for="eq-ppl"><span lang="en">How many people?</span><span lang="th">จำนวนคน</span></label><input type="number" id="eq-ppl" min="1" inputmode="numeric"></fieldset>
       </div>
+      <fieldset><legend><span lang="en">Next step</span><span lang="th">ขั้นตอนถัดไป</span></legend>
+        <div class="chips"><label><input type="checkbox" name="next" value="viewing" data-en="I'd like to book a viewing." data-th="อยากนัดชมสถานที่"><span class="c"><span lang="en">Book a viewing</span><span lang="th">นัดชมสถานที่</span></span></label><label><input type="checkbox" name="next" value="quote" data-en="Please send a quote." data-th="ขอใบเสนอราคา"><span class="c"><span lang="en">Get a quote</span><span lang="th">ขอใบเสนอราคา</span></span></label></div></fieldset>
       <div class="row2">
         <fieldset><label class="q" for="eq-name"><span lang="en">Your name</span><span lang="th">ชื่อของคุณ</span></label><input type="text" id="eq-name" autocomplete="name"></fieldset>
         <fieldset><label class="q" for="eq-co"><span lang="en">Company (optional)</span><span lang="th">บริษัท (ถ้ามี)</span></label><input type="text" id="eq-co" autocomplete="organization"></fieldset>
@@ -1665,8 +1696,10 @@
     var who = [val("eq-name"), val("eq-co")].filter(Boolean).join(", ");
     if (who) lines.push((th ? "ชื่อ: " : "Name: ") + who);
     if (val("eq-notes")) lines.push((th ? "รายละเอียด: " : "Notes: ") + val("eq-notes"));
+    picked("next").forEach(function (i) { lines.push(i.dataset[L]); });
     if (from) lines.push("(via " + from + ")");
-    return { text: lines.join("\n"), subject: (th ? "สอบถามการเช่า Shophouse" : "Booking enquiry") + (use.length ? ": " + names(use) : "") + (ds ? (th ? " " : ", ") + ds : "") };
+    var viewing = picked("next").some(function (i) { return i.value === "viewing"; });
+    return { text: lines.join("\n"), subject: (viewing ? (th ? "นัดชมสถานที่ Shophouse" : "Viewing request") : (th ? "สอบถามการเช่า Shophouse" : "Booking enquiry")) + (use.length ? ": " + names(use) : "") + (ds ? (th ? " " : ", ") + ds : "") };
   }
   function links() {
     var m = message();
